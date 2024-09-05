@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "341902641578",
+    "project_id": "severdrivenplaystoreclone",
+    "storage_bucket": "severdrivenplaystoreclone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341902641578:android:3ac464bdf3ddc339e503d3",
+        "android_client_info": {
+          "package_name": "com.example.sever_driven_playstore_clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8QdF6lWRNN7eRr1z9_jhZcVF3V5zigQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
