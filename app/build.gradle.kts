@@ -5,6 +5,9 @@ plugins {
 
     // for connecting with Firebase
     id("com.google.gms.google-services")
+
+    // for accessing secrets.properties file
+    id(libs.plugins.google.secrets.get().pluginId)
 }
 
 android {
@@ -39,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -64,4 +68,10 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.store)
     implementation(libs.firebase.remote.config)
+    implementation(libs.firebase.database)
+}
+
+secrets {
+    propertiesFileName = "secrets.properties"
+    defaultPropertiesFileName = "secrets.defaults.properties"
 }
