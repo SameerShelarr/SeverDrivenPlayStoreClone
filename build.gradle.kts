@@ -4,6 +4,9 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
 
+    // for accessing secrets.properties file
+    alias(libs.plugins.google.secrets) apply false
+
     // for connecting with Firebase
     id("com.google.gms.google-services") version "4.4.2" apply false
 }
