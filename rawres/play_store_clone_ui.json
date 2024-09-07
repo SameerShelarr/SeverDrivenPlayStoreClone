@@ -4,10 +4,10 @@
     "app_bar": {
       "order": 0,
       "logo": {
-        "url": null,
+        "url": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/play_store_logo.png",
         "size": {
-          "width": 50,
-          "height": 50
+          "width": 30,
+          "height": 30
         },
         "scaleType": "crop",
         "title": {
@@ -17,6 +17,12 @@
         }
       },
       "bell_icon": {
+        "url": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/bell_icon.png",
+        "size": {
+          "width": 24,
+          "height": 24
+        },
+        "shouldShowCount": true,
         "count": 2,
         "scaleType": "crop",
         "handler": {
@@ -43,7 +49,7 @@
             "showRedDot": false
           },
           {
-            "title": "Fruits",
+            "title": "Top Charts",
             "font_size": 14,
             "icon": null,
             "icon_size": {
@@ -53,7 +59,7 @@
             "showRedDot": false
           },
           {
-            "title": "Fruits",
+            "title": "Children",
             "font_size": 14,
             "icon": null,
             "icon_size": {
@@ -63,7 +69,7 @@
             "showRedDot": false
           },
           {
-            "title": "Fruits",
+            "title": "Categories",
             "font_size": 14,
             "icon": null,
             "icon_size": {
@@ -81,148 +87,148 @@
         "orientation": "vertical",
         "items": [
           {
-            "title": "For you",
-            "subtitle": "For you",
+            "title": "Temptation of the Dimensions: The Stage of Angels (Liliste)",
+            "subtitle": "The Stage of Angels™ mobile app is built to help you connect to work right from your phone, wherever you are, night or day.",
             "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/temptation_of_the_dimensions.webp",
             "icon_size": {
-              "width": 0,
-              "height": 0
+              "width": 60,
+              "height": 60
+            },
+            "rating": 3.8
+          },
+          {
+            "title": "Block Blast!",
+            "subtitle": "Have fun with block puzzle games, match colors, and embark on a puzzle journey!",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/block_blast.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
             },
             "rating": 4
           },
           {
-            "title": "For you",
-            "subtitle": "For you",
+            "title": "Whiteout Survival",
+            "subtitle": "Idle, strategy, survival—experience all three upon the frozen wastes!",
             "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/whiteout_survival.webp",
             "icon_size": {
-              "width": 0,
-              "height": 0
+              "width": 60,
+              "height": 60
+            },
+            "rating": 4.4
+          },
+          {
+            "title": "Pencil Sort",
+            "subtitle": "Merge the hexa, sort the pencils by color.",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/temptation_of_the_dimensions.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
+            },
+            "rating": 3
+          },
+          {
+            "title": "Royal Match",
+            "subtitle": "Decorate King Robert's Castle by solving puzzles along the way!",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/temptation_of_the_dimensions.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
+            },
+            "rating": 3.5
+          },
+          {
+            "title": "Last War:Survival Game",
+            "subtitle": "Join Last War: Survival Game - strategic zombie dodging and quick combat await!",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/temptation_of_the_dimensions.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
+            },
+            "rating": 2
+          },
+          {
+            "title": "Festive Battle [Enthusiasm in 5 minutes! Wai Wai Festival Battle]",
+            "subtitle": "Battle Prime brings you the ultimate mobile tactical shooter experience!",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/festive_battle.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
+            },
+            "rating": 5
+          },
+          {
+            "title": "Racing Master",
+            "subtitle": " You can collect and customize over 100 officially licensed cars and take on exciting races.",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/racing_master.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
+            },
+            "rating": 4.3
+          },
+          {
+            "title": "LINE Pokopoko",
+            "subtitle": "LINE POKO series 70M DLS ■ POKOTA puzzler #2 ■ Clear animals for fruits!",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/line_pokopoko.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
+            },
+            "rating": 4.4
+          },
+          {
+            "title": "Vita Mahjong",
+            "subtitle": "Relaxing Vita Mahjong: Classic Tile Matching and Free Offline Puzzle Games!",
+            "title_font_size": 14,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/vita_mahjong.webp",
+            "icon_size": {
+              "width": 60,
+              "height": 60
             },
             "rating": 4
           },
           {
-            "title": "For you",
-            "subtitle": "For you",
+            "title": "Match Factory!",
+            "subtitle": "Welcome to Match Factory - The Ultimate Triple Matching 3D Puzzle Game!",
             "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/match_factory.webp",
             "icon_size": {
-              "width": 0,
-              "height": 0
+              "width": 60,
+              "height": 60
             },
-            "rating": 4
+            "rating": 3.8
           },
           {
-            "title": "For you",
-            "subtitle": "For you",
+            "title": "Hello Candy Blast:Puzzle Match",
+            "subtitle": "An addictive blast puzzle game cutie character, Hello Candy!🩰",
             "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
+            "subtitle_font_size": 11,
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/hello_candy_blast.webp",
             "icon_size": {
-              "width": 0,
-              "height": 0
+              "width": 60,
+              "height": 60
             },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
-          },
-          {
-            "title": "For you",
-            "subtitle": "For you",
-            "title_font_size": 14,
-            "subtitle_font_size": 14,
-            "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
-            "rating": 4
+            "rating": 3
           }
         ]
       }
@@ -234,19 +240,19 @@
         "items": [
           {
             "title": "Games",
-            "icon": null
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/games.png"
           },
           {
             "title": "Apps",
-            "icon": null
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/apps.png"
           },
           {
             "title": "Search",
-            "icon": null
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/search.png"
           },
           {
             "title": "Books",
-            "icon": null
+            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/books.png"
           }
         ]
       }
