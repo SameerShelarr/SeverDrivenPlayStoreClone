@@ -1,0 +1,255 @@
+{
+  "play_store_home": {
+    "version": 1,
+    "app_bar": {
+      "order": 0,
+      "logo": {
+        "url": null,
+        "size": {
+          "width": 50,
+          "height": 50
+        },
+        "scaleType": "crop",
+        "title": {
+          "text": "Play Store",
+          "size": 26,
+          "fontWeight": "bold"
+        }
+      },
+      "bell_icon": {
+        "count": 2,
+        "scaleType": "crop",
+        "handler": {
+          "type": "click",
+          "actions": {
+            "navigate": "to"
+          }
+        }
+      }
+    },
+    "tabs": {
+      "order": 1,
+      "list": {
+        "orientation": "horizontal",
+        "items": [
+          {
+            "title": "For you",
+            "font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "showRedDot": false
+          },
+          {
+            "title": "Fruits",
+            "font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "showRedDot": false
+          },
+          {
+            "title": "Fruits",
+            "font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "showRedDot": false
+          },
+          {
+            "title": "Fruits",
+            "font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "showRedDot": false
+          }
+        ]
+      }
+    },
+    "apps_list": {
+      "order": 2,
+      "list": {
+        "orientation": "vertical",
+        "items": [
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          },
+          {
+            "title": "For you",
+            "subtitle": "For you",
+            "title_font_size": 14,
+            "subtitle_font_size": 14,
+            "icon": null,
+            "icon_size": {
+              "width": 0,
+              "height": 0
+            },
+            "rating": 4
+          }
+        ]
+      }
+    },
+    "bottom_nav": {
+      "order": 3,
+      "list": {
+        "orientation": "horizontal",
+        "items": [
+          {
+            "title": "Games",
+            "icon": null
+          },
+          {
+            "title": "Apps",
+            "icon": null
+          },
+          {
+            "title": "Search",
+            "icon": null
+          },
+          {
+            "title": "Books",
+            "icon": null
+          }
+        ]
+      }
+    }
+  }
+}
