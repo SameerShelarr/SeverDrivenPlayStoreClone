@@ -4,6 +4,9 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
 
+    // for kotlinx serialization
+    alias(libs.plugins.kotlin.serialization) apply false
+
     // for accessing secrets.properties file
     alias(libs.plugins.google.secrets) apply false
 
