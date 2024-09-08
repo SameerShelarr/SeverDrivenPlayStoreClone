@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
+    // for kotlinx serialization
+    alias(libs.plugins.kotlin.serialization)
+
     // for connecting with Firebase
     id("com.google.gms.google-services")
 
@@ -69,6 +72,12 @@ dependencies {
     implementation(libs.firebase.store)
     implementation(libs.firebase.remote.config)
     implementation(libs.firebase.database)
+
+    // Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Koin
+    implementation(libs.koin.android)
 }
 
 secrets {

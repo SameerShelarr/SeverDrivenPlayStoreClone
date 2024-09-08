@@ -9,19 +9,27 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.sever_driven_playstore_clone.models.PlayStoreHome
 import com.example.sever_driven_playstore_clone.ui.theme.SeverDrivenPlayStoreCloneTheme
+import kotlinx.coroutines.flow.StateFlow
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel by viewModel<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             SeverDrivenPlayStoreCloneTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+
+                    AppName(
+                        state = viewModel.playStoreHomeFlow,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +39,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun AppName(state: StateFlow<PlayStoreHome?>, modifier: Modifier = Modifier) {
+
+    val t by state.collectAsState()
+
     Text(
-        text = "Hello $name!",
+        text = "App Name: ${t?.appsListSection?.list?.items?.first()?.title}!",
         modifier = modifier
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SeverDrivenPlayStoreCloneTheme {
-        Greeting("Android")
-    }
 }
