@@ -13,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.example.sever_driven_playstore_clone.models.PlayStoreHome
+import com.example.sever_driven_playstore_clone.ui.PlayStoreHomeScreen
 import com.example.sever_driven_playstore_clone.ui.theme.SeverDrivenPlayStoreCloneTheme
 import kotlinx.coroutines.flow.StateFlow
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,9 +28,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             SeverDrivenPlayStoreCloneTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
-                    AppName(
-                        state = viewModel.playStoreHomeFlow,
+//                    AppName(
+//                        state = viewModel.playStoreHomeFlow,
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+                    PlayStoreHomeScreen(
+                        viewModeL = viewModel,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

@@ -67,6 +67,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // for collectAsStateWithLifecycle
+    implementation(libs.androidx.lifecycle.runtime.compose.android)
+
     // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.store)
