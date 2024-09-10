@@ -1,6 +1,5 @@
 package com.example.sever_driven_playstore_clone.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,15 +18,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.compose.AsyncImage
 import com.example.sever_driven_playstore_clone.MainViewModel
-import com.example.sever_driven_playstore_clone.R
 import com.example.sever_driven_playstore_clone.models.App
 import com.example.sever_driven_playstore_clone.models.Size
 
@@ -66,8 +64,8 @@ fun AppItem(app: App) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             // App Icon
-            Image(
-                painter = painterResource(R.drawable.ic_launcher_background),
+            AsyncImage(
+                model = app.icon,
                 contentDescription = app.title,
                 modifier = Modifier
                     .size(64.dp)
