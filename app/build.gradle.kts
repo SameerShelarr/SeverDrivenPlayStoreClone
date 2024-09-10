@@ -81,6 +81,9 @@ dependencies {
 
     // Koin
     implementation(libs.koin.android)
+
+    // Image loading
+    implementation(libs.coil.compose)
 }
 
 secrets {
