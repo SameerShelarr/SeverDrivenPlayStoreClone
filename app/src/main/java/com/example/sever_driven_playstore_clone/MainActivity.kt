@@ -12,8 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.sever_driven_playstore_clone.models.PlayStoreHome
-import com.example.sever_driven_playstore_clone.ui.PlayStoreHomeScreen
+import com.example.sever_driven_playstore_clone.ui.AppBar
+import com.example.sever_driven_playstore_clone.ui.AppsListScreen
 import com.example.sever_driven_playstore_clone.ui.theme.SeverDrivenPlayStoreCloneTheme
 import kotlinx.coroutines.flow.StateFlow
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,16 +28,24 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
+            val state by viewModel.playStoreHomeFlow.collectAsStateWithLifecycle()
+
             SeverDrivenPlayStoreCloneTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    AppName(
-//                        state = viewModel.playStoreHomeFlow,
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-                    PlayStoreHomeScreen(
-                        viewModeL = viewModel,
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    topBar = {
+                        state?.appBarSection?.let {
+                            AppBar(it)
+                        }
+                    },
+                ) { innerPadding ->
+                    state?.appsListSection?.let {
+                        AppsListScreen(
+                            appsListSection = it,
+                            modifier = Modifier.padding(innerPadding)
+                        )
+                    }
                 }
             }
         }
