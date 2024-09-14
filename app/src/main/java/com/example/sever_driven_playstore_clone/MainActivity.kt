@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -16,6 +17,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.sever_driven_playstore_clone.models.PlayStoreHome
 import com.example.sever_driven_playstore_clone.ui.AppBar
 import com.example.sever_driven_playstore_clone.ui.AppsListScreen
+import com.example.sever_driven_playstore_clone.ui.PlayStoreTabs
 import com.example.sever_driven_playstore_clone.ui.theme.SeverDrivenPlayStoreCloneTheme
 import kotlinx.coroutines.flow.StateFlow
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -40,11 +42,19 @@ class MainActivity : ComponentActivity() {
                         }
                     },
                 ) { innerPadding ->
-                    state?.appsListSection?.let {
-                        AppsListScreen(
-                            appsListSection = it,
-                            modifier = Modifier.padding(innerPadding)
-                        )
+                    Column(
+                        modifier = Modifier.padding(innerPadding)
+                    ) {
+                        state?.tabsSection?.let {
+                            PlayStoreTabs(
+                                tabsSection = it
+                            )
+                        }
+                        state?.appsListSection?.let {
+                            AppsListScreen(
+                                appsListSection = it,
+                            )
+                        }
                     }
                 }
             }

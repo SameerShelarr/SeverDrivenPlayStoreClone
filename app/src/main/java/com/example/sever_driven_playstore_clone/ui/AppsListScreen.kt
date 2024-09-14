@@ -40,7 +40,7 @@ import com.example.sever_driven_playstore_clone.models.Title
 @Composable
 fun AppsListScreen(
     appsListSection: AppsListSection,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     LazyColumn(
         modifier = modifier
