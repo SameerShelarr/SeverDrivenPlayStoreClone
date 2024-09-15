@@ -4,9 +4,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class BottomNav(
-    @SerialName("icon")
-    val icon: BottomNavIcon,
-    @SerialName("title")
-    val title: String
+data class BottomNavIcon(
+    val url: String,
+    @SerialName("icon_size")
+    val iconSize: Size,
 )

@@ -8,18 +8,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.sever_driven_playstore_clone.models.PlayStoreHome
 import com.example.sever_driven_playstore_clone.ui.AppBar
 import com.example.sever_driven_playstore_clone.ui.AppsListScreen
+import com.example.sever_driven_playstore_clone.ui.PlayStoreBottomNav
 import com.example.sever_driven_playstore_clone.ui.PlayStoreTabs
 import com.example.sever_driven_playstore_clone.ui.theme.SeverDrivenPlayStoreCloneTheme
-import kotlinx.coroutines.flow.StateFlow
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -41,6 +37,11 @@ class MainActivity : ComponentActivity() {
                             AppBar(it)
                         }
                     },
+                    bottomBar = {
+                        state?.bottomNavSection?.let {
+                            PlayStoreBottomNav(bottomNavSection = it) { }
+                        }
+                    }
                 ) { innerPadding ->
                     Column(
                         modifier = Modifier.padding(innerPadding)
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
                         state?.tabsSection?.let {
                             PlayStoreTabs(
                                 tabsSection = it
-                            )
+                            ) { }
                         }
                         state?.appsListSection?.let {
                             AppsListScreen(
@@ -60,15 +61,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
-
-@Composable
-fun AppName(state: StateFlow<PlayStoreHome?>, modifier: Modifier = Modifier) {
-
-    val t by state.collectAsState()
-
-    Text(
-        text = "App Name: ${t?.appsListSection?.list?.items?.first()?.title}!",
-        modifier = modifier
-    )
 }

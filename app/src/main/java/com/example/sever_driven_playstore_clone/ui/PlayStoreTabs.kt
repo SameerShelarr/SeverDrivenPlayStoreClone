@@ -8,40 +8,90 @@ import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.sever_driven_playstore_clone.models.Size
+import com.example.sever_driven_playstore_clone.models.Tab
+import com.example.sever_driven_playstore_clone.models.TabsList
 import com.example.sever_driven_playstore_clone.models.TabsSection
 import com.example.sever_driven_playstore_clone.ui.theme.green
 import com.example.sever_driven_playstore_clone.ui.theme.grey
 
 @Composable
 fun PlayStoreTabs(
-    tabsSection: TabsSection
+    tabsSection: TabsSection,
+    onTabSelected: (Int) -> Unit
 ) {
+    var selectedTab by remember { mutableIntStateOf(0) }
     TabRow(
-        selectedTabIndex = 0,
+        selectedTabIndex = selectedTab,
         contentColor = Color(0xFFB7B7B7),
         indicator = { tabPositions ->
             TabRowDefaults.SecondaryIndicator(
                 // Set the indicator's width dynamically based on the selected tab's width
                 Modifier
-                    .tabIndicatorOffset(tabPositions[0]) // Dynamic position
-                    .width(tabPositions[0].width - 16.dp) // Reduce width for padding
+                    .tabIndicatorOffset(tabPositions[selectedTab]) // Dynamic position
+                    .width(tabPositions[selectedTab].width - 16.dp) // Reduce width for padding
                     .padding(horizontal = 32.dp), // Padding on both sides
                 color = green
             )
         }
     ) {
         tabsSection.list.items.forEachIndexed { index, tab ->
-            val isSelected = 0 == index
+            val isSelected = selectedTab == index
             Tab(
                 text = {
                     Text(tab.title, color = if (isSelected) green else grey)
                 },
-                selected = 0 == index,
-                onClick = {}
+                selected = selectedTab == index,
+                onClick = {
+                    selectedTab = index
+                    onTabSelected.invoke(index)
+                }
             )
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PlayStoreTabsPreview() {
+    // Sample data for the preview
+    val tabs = listOf(
+        Tab(
+            fontSize = 14,
+            iconSize = Size(24, 24),
+            showRedDot = false,
+            title = "Home"
+        ),
+        Tab(
+            fontSize = 14,
+            iconSize = Size(24, 24),
+            showRedDot = true,
+            title = "Games"
+        ),
+        Tab(
+            fontSize = 14,
+            iconSize = Size(24, 24),
+            showRedDot = false,
+            title = "Movies"
+        )
+    )
+
+    val tabsSection = TabsSection(
+        list = TabsList(
+            items = tabs,
+            orientation = "horizontal"
+        ),
+        order = 1
+    )
+
+    // Render the PlayStoreTabs composable with the sample data
+    PlayStoreTabs(tabsSection = tabsSection) { }
 }

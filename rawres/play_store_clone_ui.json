@@ -49,7 +49,7 @@
             "showRedDot": false
           },
           {
-            "title": "Top Charts",
+            "title": "Top charts",
             "font_size": 14,
             "icon": null,
             "icon_size": {
@@ -240,19 +240,43 @@
         "items": [
           {
             "title": "Games",
-            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/games.png"
+            "icon": {
+              "url": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/games.png",
+              "icon_size": {
+                "width": 28,
+                "height": 28
+              }
+            }
           },
           {
             "title": "Apps",
-            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/apps.png"
+            "icon": {
+              "url": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/apps.png",
+              "icon_size": {
+                "width": 28,
+                "height": 28
+              }
+            }
           },
           {
             "title": "Search",
-            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/search.png"
+            "icon": {
+              "url": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/search.png",
+              "icon_size": {
+                "width": 28,
+                "height": 28
+              }
+            }
           },
           {
             "title": "Books",
-            "icon": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/books.png"
+            "icon": {
+              "url": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/books.png",
+              "icon_size": {
+                "width": 28,
+                "height": 28
+              }
+            }
           }
         ]
       }
