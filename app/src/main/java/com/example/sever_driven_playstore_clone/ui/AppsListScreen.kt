@@ -9,13 +9,16 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -26,6 +29,7 @@ import coil.compose.AsyncImage
 import com.example.sever_driven_playstore_clone.models.App
 import com.example.sever_driven_playstore_clone.models.AppsListSection
 import com.example.sever_driven_playstore_clone.models.Size
+import com.example.sever_driven_playstore_clone.ui.theme.grey
 
 @Composable
 fun AppsListScreen(
@@ -43,60 +47,69 @@ fun AppsListScreen(
 
 @Composable
 fun AppItem(app: App) {
-    Card(
+    Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
-        elevation = CardDefaults.cardElevation(4.dp)
+            .padding(12.dp),
     ) {
-        Row(
+        // App Icon
+        AsyncImage(
+            model = app.icon,
+            contentDescription = app.title,
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .size(64.dp)
+                .padding(4.dp)
+                .clip(RoundedCornerShape(10.dp)),
+            contentScale = ContentScale.Crop,
+            alignment = Alignment.TopStart
+        )
+
+        Spacer(modifier = Modifier.width(8.dp))
+
+        // App Details (Title, Subtitle, Rating)
+        Column(
+            modifier = Modifier
+                .padding(start = 8.dp)
+                .align(Alignment.CenterVertically)
         ) {
-            // App Icon
-            AsyncImage(
-                model = app.icon,
-                contentDescription = app.title,
-                modifier = Modifier
-                    .size(64.dp)
-                    .padding(4.dp),
-                contentScale = ContentScale.Crop
+            // Title
+            Text(
+                text = app.title,
+                fontSize = app.titleFontSize.sp,
+                fontWeight = FontWeight.Bold,
+                color = grey,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
 
-            Spacer(modifier = Modifier.width(8.dp))
+            // Subtitle
+            Text(
+                text = app.subtitle,
+                fontSize = app.subtitleFontSize.sp,
+                color = grey,
+                lineHeight = 12.sp,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
 
-            // App Details (Title, Subtitle, Rating)
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(start = 8.dp)
+            // Rating
+            Row(
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                // Title
                 Text(
-                    text = app.title,
-                    fontSize = app.titleFontSize.sp,
-                    fontWeight = FontWeight.Bold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-
-                // Subtitle
-                Text(
-                    text = app.subtitle,
+                    text = app.rating.toString(),
                     fontSize = app.subtitleFontSize.sp,
-                    color = Color.Gray,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    color = grey,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
                 )
-
-                // Rating (e.g., "3.8 stars")
-                Text(
-                    text = String.format("%.1f stars", app.rating),
-                    fontSize = 14.sp,
-                    color = Color.Gray,
-                    modifier = Modifier.padding(top = 4.dp)
+                Icon(
+                    painter = rememberVectorPainter(Icons.Filled.Star),
+                    contentDescription = "star",
+                    tint = grey,
+                    modifier = Modifier
+                        .size(10.dp)
+                        .align(Alignment.CenterVertically),
                 )
             }
         }
