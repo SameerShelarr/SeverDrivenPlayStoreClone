@@ -10,6 +10,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -18,6 +19,8 @@ import com.example.sever_driven_playstore_clone.models.BottomNavIcon
 import com.example.sever_driven_playstore_clone.models.BottomNavItems
 import com.example.sever_driven_playstore_clone.models.BottomNavSection
 import com.example.sever_driven_playstore_clone.models.Size
+import com.example.sever_driven_playstore_clone.ui.theme.green
+import com.example.sever_driven_playstore_clone.ui.theme.grey
 
 @Composable
 fun PlayStoreBottomNav(
@@ -35,10 +38,24 @@ fun PlayStoreBottomNav(
                         modifier = Modifier.size(
                             height = item.icon.iconSize.height.dp,
                             width = item.icon.iconSize.width.dp,
-                        )
+                        ),
+                        colorFilter = if (selectedItem == index) {
+                            ColorFilter.tint(
+                                color = green
+                            )
+                        } else null
                     )
                 },
-                label = { Text(text = item.title) },
+                label = {
+                    Text(
+                        text = item.title,
+                        color = if (selectedItem == index) {
+                            green
+                        } else {
+                            grey
+                        }
+                    )
+                },
                 selected = selectedItem == index,
                 onClick = {
                     selectedItem = index
