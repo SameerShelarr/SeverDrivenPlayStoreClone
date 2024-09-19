@@ -40,13 +40,23 @@ fun AppsListScreen(
         modifier = modifier
     ) {
         items(appsListSection.list.items) { app ->
-            AppItem(app)
+            AppItem(
+                app = app,
+                iconSize = appsListSection.list.iconSize,
+                titleFontSize = appsListSection.list.titleFontSize,
+                subtitleFontSize = appsListSection.list.subtitleFontSize,
+            )
         }
     }
 }
 
 @Composable
-fun AppItem(app: App) {
+fun AppItem(
+    app: App,
+    iconSize: Size,
+    titleFontSize: Int,
+    subtitleFontSize: Int,
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -57,7 +67,10 @@ fun AppItem(app: App) {
             model = app.icon,
             contentDescription = app.title,
             modifier = Modifier
-                .size(64.dp)
+                .size(
+                    height = iconSize.height.dp,
+                    width = iconSize.width.dp,
+                )
                 .padding(4.dp)
                 .clip(RoundedCornerShape(10.dp)),
             contentScale = ContentScale.Crop,
@@ -75,7 +88,7 @@ fun AppItem(app: App) {
             // Title
             Text(
                 text = app.title,
-                fontSize = app.titleFontSize.sp,
+                fontSize = titleFontSize.sp,
                 fontWeight = FontWeight.Bold,
                 color = grey,
                 maxLines = 1,
@@ -85,7 +98,7 @@ fun AppItem(app: App) {
             // Subtitle
             Text(
                 text = app.subtitle,
-                fontSize = app.subtitleFontSize.sp,
+                fontSize = subtitleFontSize.sp,
                 color = grey,
                 lineHeight = 12.sp,
                 maxLines = 2,
@@ -98,7 +111,7 @@ fun AppItem(app: App) {
             ) {
                 Text(
                     text = app.rating.toString(),
-                    fontSize = app.subtitleFontSize.sp,
+                    fontSize = subtitleFontSize.sp,
                     color = grey,
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
@@ -121,13 +134,15 @@ fun AppItem(app: App) {
 fun PreviewAppItem() {
     val sampleApp = App(
         icon = "https://example.com/icon.png", // Replace with an actual icon URL
-        iconSize = Size(64, 64),
         rating = 4.5,
         subtitle = "A great app for your needs",
-        subtitleFontSize = 12,
         title = "Cool App",
-        titleFontSize = 16
     )
 
-    AppItem(app = sampleApp)
+    AppItem(
+        app = sampleApp,
+        iconSize = Size(64, 64),
+        titleFontSize = 16,
+        subtitleFontSize = 12,
+    )
 }
