@@ -37,45 +37,30 @@
       "order": 1,
       "list": {
         "orientation": "horizontal",
+        "icon_size": {
+          "width": 0,
+          "height": 0
+        },
+        "font_size": 14,
         "items": [
           {
             "title": "For you",
-            "font_size": 14,
             "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
             "showRedDot": false
           },
           {
             "title": "Top charts",
-            "font_size": 14,
             "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
             "showRedDot": false
           },
           {
             "title": "Children",
-            "font_size": 14,
             "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
             "showRedDot": false
           },
           {
             "title": "Categories",
-            "font_size": 14,
             "icon": null,
-            "icon_size": {
-              "width": 0,
-              "height": 0
-            },
             "showRedDot": false
           }
         ]

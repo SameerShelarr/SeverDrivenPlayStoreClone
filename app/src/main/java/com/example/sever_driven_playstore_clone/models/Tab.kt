@@ -5,12 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Tab(
-    @SerialName("font_size")
-    val fontSize: Int,
-    @SerialName("icon_size")
-    val iconSize: Size,
     @SerialName("showRedDot")
     val showRedDot: Boolean,
     @SerialName("title")
-    val title: String
+    val title: String,
+    @SerialName("icon")
+    val icon: String? = null,
 )

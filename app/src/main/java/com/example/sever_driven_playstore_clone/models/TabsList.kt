@@ -8,5 +8,9 @@ data class TabsList(
     @SerialName("items")
     val items: List<Tab>,
     @SerialName("orientation")
-    val orientation: String
+    val orientation: String,
+    @SerialName("font_size")
+    val fontSize: Int,
+    @SerialName("icon_size")
+    val iconSize: Size,
 )
