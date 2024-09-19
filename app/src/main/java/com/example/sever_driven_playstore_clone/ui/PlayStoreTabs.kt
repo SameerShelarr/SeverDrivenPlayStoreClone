@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.sever_driven_playstore_clone.models.Size
 import com.example.sever_driven_playstore_clone.models.Tab
 import com.example.sever_driven_playstore_clone.models.TabsList
@@ -51,7 +52,11 @@ fun PlayStoreTabs(
             val isSelected = selectedTab == index
             Tab(
                 text = {
-                    Text(tab.title, color = if (isSelected) green else grey)
+                    Text(
+                        text = tab.title,
+                        color = if (isSelected) green else grey,
+                        fontSize = tabsSection.list.fontSize.sp
+                    )
                 },
                 selected = selectedTab == index,
                 onClick = {
@@ -69,29 +74,31 @@ fun PlayStoreTabsPreview() {
     // Sample data for the preview
     val tabs = listOf(
         Tab(
-            fontSize = 14,
-            iconSize = Size(24, 24),
             showRedDot = false,
-            title = "Home"
+            title = "Home",
+            icon = null,
         ),
         Tab(
-            fontSize = 14,
-            iconSize = Size(24, 24),
             showRedDot = true,
-            title = "Games"
+            title = "Games",
+            icon = null,
         ),
         Tab(
-            fontSize = 14,
-            iconSize = Size(24, 24),
             showRedDot = false,
-            title = "Movies"
+            title = "Movies",
+            icon = null,
         )
     )
 
     val tabsSection = TabsSection(
         list = TabsList(
             items = tabs,
-            orientation = "horizontal"
+            orientation = "horizontal",
+            fontSize = 14,
+            iconSize = Size(
+                height = 0,
+                width = 0,
+            )
         ),
         order = 1
     )
