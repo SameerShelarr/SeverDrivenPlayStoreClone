@@ -14,7 +14,15 @@ class PlayStoreRepository(
                 snapshot.child("play_store_home")
             },
             decodeProvider = { jsonString ->
-                Json.decodeFromString(jsonString)
+                val json = Json {
+                    ignoreUnknownKeys = true
+                    isLenient = true
+                }
+                try {
+                    json.decodeFromString(jsonString)
+                } catch (e: Exception) {
+                    null
+                }
             }
         )
     }

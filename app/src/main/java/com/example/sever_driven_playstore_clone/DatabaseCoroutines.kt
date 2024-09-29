@@ -2,7 +2,6 @@
 
 package com.example.sever_driven_playstore_clone
 
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -20,7 +19,7 @@ import org.json.JSONObject
 
 fun <T : Any> DatabaseReference.flow(
     path: (DataSnapshot) -> DataSnapshot,
-    decodeProvider: (String) -> T,
+    decodeProvider: (String) -> T?,
 ): Flow<Result<T?>> = callbackFlow {
     val listener = object : ValueEventListener {
         override fun onDataChange(snapshot: DataSnapshot) {
@@ -33,81 +32,6 @@ fun <T : Any> DatabaseReference.flow(
         }
     }
     addValueEventListener(listener)
-
-    awaitClose { removeEventListener(listener) }
-}
-
-/**
- * Returns a flow that emits only once a target object [T] from the specified [path] within the [DatabaseReference].
- *
- * The flow emits a [Result], encapsulating both the snapshot value and any potential errors.
- */
-fun <T : Any> DatabaseReference.flowSingle(
-    path: (DataSnapshot) -> DataSnapshot,
-    decodeProvider: (String) -> T,
-): Flow<Result<T?>> = callbackFlow {
-    val listener = object : ValueEventListener {
-        override fun onDataChange(snapshot: DataSnapshot) {
-            val data = path.invoke(snapshot).serializedValue(decodeProvider)
-            trySend(Result.success(data))
-        }
-
-        override fun onCancelled(error: DatabaseError) {
-            trySend(Result.failure(error.toException()))
-        }
-    }
-    addListenerForSingleValueEvent(listener)
-
-    awaitClose { removeEventListener(listener) }
-}
-
-/**
- * Returns a flow that emits a target object [T] based on changes to the child nodes
- * at the specified [path] within the [DatabaseReference].
- *
- * The flow emits [ChildState], which encapsulates all state changes, including the snapshot value and any errors.
- */
-fun <T : Any> DatabaseReference.flowChild(
-    path: (DataSnapshot) -> DataSnapshot,
-    decodeProvider: (String) -> T,
-): Flow<ChildState<T>> = callbackFlow {
-    val listener = object : ChildEventListener {
-        override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-            val data = path.invoke(snapshot).serializedValue(decodeProvider)
-            trySend(
-                ChildState.ChildAdded(value = data, previousChildName = previousChildName),
-            )
-        }
-
-        override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-            val data = path.invoke(snapshot).serializedValue(decodeProvider)
-            trySend(
-                ChildState.ChildChanged(value = data, previousChildName = previousChildName),
-            )
-        }
-
-        override fun onChildRemoved(snapshot: DataSnapshot) {
-            val data = path.invoke(snapshot).serializedValue(decodeProvider)
-            trySend(
-                ChildState.ChildRemoved(value = data),
-            )
-        }
-
-        override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-            val data = path.invoke(snapshot).serializedValue(decodeProvider)
-            trySend(
-                ChildState.ChildMoved(value = data, previousChildName = previousChildName),
-            )
-        }
-
-        override fun onCancelled(error: DatabaseError) {
-            trySend(
-                ChildState.ChildCanceled(error = error),
-            )
-        }
-    }
-
-    addChildEventListener(listener)
 
     awaitClose { removeEventListener(listener) }
 }
