@@ -9,6 +9,4 @@ data class AppBarSection(
     val bellIcon: BellIcon,
     @SerialName("logo")
     val logo: Logo,
-    @SerialName("order")
-    val order: Int
 )

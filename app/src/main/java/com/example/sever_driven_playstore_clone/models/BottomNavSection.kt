@@ -7,6 +7,4 @@ import kotlinx.serialization.Serializable
 data class BottomNavSection(
     @SerialName("list")
     val list: BottomNavItems,
-    @SerialName("order")
-    val order: Int
 )

@@ -7,6 +7,4 @@ import kotlinx.serialization.Serializable
 data class AppsListSection(
     @SerialName("list")
     val list: Apps,
-    @SerialName("order")
-    val order: Int
 )

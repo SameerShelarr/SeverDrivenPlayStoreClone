@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,19 +14,21 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.sever_driven_playstore_clone.models.Actions
 import com.example.sever_driven_playstore_clone.models.AppBarSection
 import com.example.sever_driven_playstore_clone.models.BellIcon
-import com.example.sever_driven_playstore_clone.models.Handler
 import com.example.sever_driven_playstore_clone.models.Logo
 import com.example.sever_driven_playstore_clone.models.Size
 import com.example.sever_driven_playstore_clone.models.Title
@@ -46,14 +49,37 @@ fun AppBar(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 // Logo
-                AsyncImage(
-                    model = appBarSection.logo.url,
-                    contentDescription = appBarSection.logo.title.text,
-                    modifier = Modifier
-                        .width(appBarSection.logo.size.width.dp)
-                        .height(appBarSection.logo.size.height.dp),
-                    contentScale = ContentScale.Crop
-                )
+                Row {
+                    AsyncImage(
+                        model = appBarSection.logo.url,
+                        contentDescription = appBarSection.logo.title.text,
+                        modifier = Modifier
+                            .width(appBarSection.logo.size.width.dp)
+                            .height(appBarSection.logo.size.height.dp),
+                        contentScale = ContentScale.Crop
+                    )
+
+                    Spacer(modifier = Modifier.width(16.dp))
+
+                    if (appBarSection.logo.title.shouldShowTitle) {
+                        appBarSection.logo.title.apply {
+                            Text(
+                                text = text,
+                                fontSize = size.sp,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = when (fontWeight) {
+                                    "bold" -> FontWeight.Bold
+                                    "medium" -> FontWeight.Medium
+                                    "thin" -> FontWeight.Thin
+                                    else -> FontWeight.Normal
+                                },
+                                modifier = Modifier.align(
+                                    alignment = Alignment.CenterVertically
+                                )
+                            )
+                        }
+                    }
+                }
 
                 // Bell Icon
                 Box(
@@ -86,16 +112,18 @@ fun AppBar(
                         )
 
                         // Red Dot (Notification Badge)
-                        Box(
-                            modifier = Modifier
-                                .size(6.dp) // Size of the red dot
-                                .align(Alignment.TopEnd) // Align to the top-end (top-right)
-                                .offset(
-                                    x = (-4).dp,
-                                    y = 4.dp
-                                ) // Slight offset to adjust the position
-                                .background(Color.Red, shape = CircleShape)
-                        )
+                        if (appBarSection.bellIcon.shouldShowRedDot) {
+                            Box(
+                                modifier = Modifier
+                                    .size(6.dp) // Size of the red dot
+                                    .align(Alignment.TopEnd) // Align to the top-end (top-right)
+                                    .offset(
+                                        x = (-4).dp,
+                                        y = 4.dp
+                                    ) // Slight offset to adjust the position
+                                    .background(Color.Red, shape = CircleShape)
+                            )
+                        }
                     }
                 }
             }
@@ -109,27 +137,20 @@ fun AppBar(
 fun PreviewAppBar() {
     val sampleAppBarSection = AppBarSection(
         bellIcon = BellIcon(
-            count = 5,
-            handler = Handler(
-                actions = Actions(navigate = ""),
-                type = "click"
-            ),
-            scaleType = "fit",
-            shouldShowCount = true,
+            shouldShowRedDot = true,
             size = Size(24, 24),
             url = "https://example.com/bell_icon.png"
         ),
         logo = Logo(
-            scaleType = "fit",
             size = Size(100, 40),
             title = Title(
                 fontWeight = "bold",
                 size = 14,
-                text = "Play Store"
+                text = "Play Store",
+                shouldShowTitle = true
             ),
             url = "https://example.com/logo.png"
         ),
-        order = 1
     )
 
     AppBar(appBarSection = sampleAppBarSection)

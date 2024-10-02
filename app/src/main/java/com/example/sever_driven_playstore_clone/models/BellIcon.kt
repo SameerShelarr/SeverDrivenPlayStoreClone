@@ -5,14 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class BellIcon(
-    @SerialName("count")
-    val count: Int,
-    @SerialName("handler")
-    val handler: Handler,
-    @SerialName("scaleType")
-    val scaleType: String,
-    @SerialName("shouldShowCount")
-    val shouldShowCount: Boolean,
+    @SerialName("shouldShowRedDot")
+    val shouldShowRedDot: Boolean,
     @SerialName("size")
     val size: Size,
     @SerialName("url")
