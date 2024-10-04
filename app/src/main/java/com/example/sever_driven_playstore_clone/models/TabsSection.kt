@@ -7,6 +7,4 @@ import kotlinx.serialization.Serializable
 data class TabsSection(
     @SerialName("list")
     val list: TabsList,
-    @SerialName("order")
-    val order: Int
 )

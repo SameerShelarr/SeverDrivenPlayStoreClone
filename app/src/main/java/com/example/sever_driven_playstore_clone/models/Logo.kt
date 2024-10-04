@@ -5,8 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Logo(
-    @SerialName("scaleType")
-    val scaleType: String,
     @SerialName("size")
     val size: Size,
     @SerialName("title")

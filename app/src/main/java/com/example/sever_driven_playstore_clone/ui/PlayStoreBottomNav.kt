@@ -106,7 +106,6 @@ fun BottomNavPreview() {
             items = bottomNavItems,
             orientation = "horizontal"
         ),
-        order = 1
     )
 
     PlayStoreBottomNav(

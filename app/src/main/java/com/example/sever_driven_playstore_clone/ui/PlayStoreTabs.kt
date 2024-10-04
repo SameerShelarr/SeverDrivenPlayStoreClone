@@ -100,7 +100,6 @@ fun PlayStoreTabsPreview() {
                 width = 0,
             )
         ),
-        order = 1
     )
 
     // Render the PlayStoreTabs composable with the sample data

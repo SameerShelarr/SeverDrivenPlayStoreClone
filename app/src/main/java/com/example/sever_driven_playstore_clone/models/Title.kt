@@ -10,5 +10,7 @@ data class Title(
     @SerialName("size")
     val size: Int,
     @SerialName("text")
-    val text: String
+    val text: String,
+    @SerialName("shouldShowTitle")
+    val shouldShowTitle: Boolean
 )

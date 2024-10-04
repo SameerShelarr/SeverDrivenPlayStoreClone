@@ -2,18 +2,17 @@
   "play_store_home": {
     "version": 1,
     "app_bar": {
-      "order": 0,
       "logo": {
         "url": "https://raw.githubusercontent.com/SameerShelarr/SeverDrivenPlayStoreClone/main/rawres/images/icons/play_store_logo.png",
         "size": {
           "width": 30,
           "height": 30
         },
-        "scaleType": "crop",
         "title": {
           "text": "Play Store",
-          "size": 26,
-          "fontWeight": "bold"
+          "size": 18,
+          "fontWeight": "thin",
+          "shouldShowTitle": false
         }
       },
       "bell_icon": {
@@ -22,19 +21,10 @@
           "width": 24,
           "height": 24
         },
-        "shouldShowCount": true,
-        "count": 2,
-        "scaleType": "crop",
-        "handler": {
-          "type": "click",
-          "actions": {
-            "navigate": "to"
-          }
-        }
+        "shouldShowRedDot": true
       }
     },
     "tabs": {
-      "order": 1,
       "list": {
         "orientation": "horizontal",
         "icon_size": {
@@ -67,7 +57,6 @@
       }
     },
     "apps_list": {
-      "order": 2,
       "list": {
         "orientation": "vertical",
         "title_font_size": 14,
@@ -153,7 +142,6 @@
       }
     },
     "bottom_nav": {
-      "order": 3,
       "list": {
         "orientation": "horizontal",
         "items": [
