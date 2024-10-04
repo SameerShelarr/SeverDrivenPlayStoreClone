@@ -26,31 +26,22 @@
     },
     "tabs": {
       "list": {
-        "orientation": "horizontal",
-        "icon_size": {
-          "width": 0,
-          "height": 0
-        },
         "font_size": 14,
         "items": [
           {
             "title": "For you",
-            "icon": null,
             "showRedDot": false
           },
           {
             "title": "Top charts",
-            "icon": null,
             "showRedDot": false
           },
           {
             "title": "Children",
-            "icon": null,
             "showRedDot": false
           },
           {
             "title": "Categories",
-            "icon": null,
             "showRedDot": false
           }
         ]
