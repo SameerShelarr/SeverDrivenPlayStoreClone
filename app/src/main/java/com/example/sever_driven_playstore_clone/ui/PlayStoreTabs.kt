@@ -1,6 +1,11 @@
 package com.example.sever_driven_playstore_clone.ui
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.absoluteOffset
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
@@ -11,13 +16,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.sever_driven_playstore_clone.models.Size
 import com.example.sever_driven_playstore_clone.models.Tab
 import com.example.sever_driven_playstore_clone.models.TabsList
 import com.example.sever_driven_playstore_clone.models.TabsSection
@@ -50,20 +55,34 @@ fun PlayStoreTabs(
     ) {
         tabsSection.list.items.forEachIndexed { index, tab ->
             val isSelected = selectedTab == index
-            Tab(
-                text = {
-                    Text(
-                        text = tab.title,
-                        color = if (isSelected) green else grey,
-                        fontSize = tabsSection.list.fontSize.sp
+            Box {
+                Tab(
+                    text = {
+                        Text(
+                            text = tab.title,
+                            color = if (isSelected) green else grey,
+                            fontSize = tabsSection.list.fontSize.sp
+                        )
+                    },
+                    selected = selectedTab == index,
+                    onClick = {
+                        selectedTab = index
+                        onTabSelected.invoke(index)
+                    }
+                )
+                if (tab.showRedDot) {
+                    Box(
+                        modifier = Modifier
+                            .size(6.dp) // Size of the red dot
+                            .align(Alignment.TopCenter) // Align to the top-end (top-right)
+                            .offset(
+                                x = 30.dp,
+                                y = 15.dp
+                            ) // Slight offset to adjust the position
+                            .background(Color.Red, shape = CircleShape)
                     )
-                },
-                selected = selectedTab == index,
-                onClick = {
-                    selectedTab = index
-                    onTabSelected.invoke(index)
                 }
-            )
+            }
         }
     }
 }
@@ -76,29 +95,21 @@ fun PlayStoreTabsPreview() {
         Tab(
             showRedDot = false,
             title = "Home",
-            icon = null,
         ),
         Tab(
             showRedDot = true,
             title = "Games",
-            icon = null,
         ),
         Tab(
             showRedDot = false,
             title = "Movies",
-            icon = null,
         )
     )
 
     val tabsSection = TabsSection(
         list = TabsList(
             items = tabs,
-            orientation = "horizontal",
             fontSize = 14,
-            iconSize = Size(
-                height = 0,
-                width = 0,
-            )
         ),
     )
 

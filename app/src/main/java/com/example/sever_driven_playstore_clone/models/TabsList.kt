@@ -7,10 +7,6 @@ import kotlinx.serialization.Serializable
 data class TabsList(
     @SerialName("items")
     val items: List<Tab>,
-    @SerialName("orientation")
-    val orientation: String,
     @SerialName("font_size")
     val fontSize: Int,
-    @SerialName("icon_size")
-    val iconSize: Size,
 )

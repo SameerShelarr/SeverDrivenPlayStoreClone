@@ -9,6 +9,4 @@ data class Tab(
     val showRedDot: Boolean,
     @SerialName("title")
     val title: String,
-    @SerialName("icon")
-    val icon: String? = null,
 )
